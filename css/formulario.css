@@ -1,0 +1,72 @@
+label{
+    padding-top: 15px;
+    padding-bottom: 8px;    
+    display: table;    
+    font-size: 20px;
+    font-weight: 500;
+    color: #888;
+    margin-left: 10px;
+}
+
+input[type=text], [type=password], [type=email], [type=tel], [type=date], [type=number]{
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+}
+
+select, textarea{
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    font-size: 17px;
+}
+
+input[type=reset], [type=submit]{
+    padding: 12px 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}
+
+input[type=reset]{
+    background-color: #aaa; 
+    margin-right: 10px;   
+}
+
+input[type=submit]{
+    background-color: rgb(11, 128, 0);    
+    font-weight: 700;
+}
+
+/* INPUT FILE */
+input[type=file]{
+    display: none;
+}
+
+.inputfile + label{
+    background-color: #444;
+    padding: 10px 30px;
+    color: #fff;
+    font-weight: bold; /* negrito */
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* INPUT FILE */
+
+@media screen and (max-width:800px){
+    /* usado para centralizar o título, botao e imagem */
+    .col-2, .col-6, .col-8{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .row-flex{
+        display: block;
+    }
+
+}

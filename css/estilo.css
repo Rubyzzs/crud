@@ -1,0 +1,122 @@
+img{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    margin-top: 20px;
+    height: 35px;
+}
+
+ul li{
+    display: inline;    
+    padding: 20px 15px;            
+    color: black;
+    font-weight: 500;
+}
+ 
+ul li:hover{
+    background-color: #f3f3f3;
+    color: blue;
+}
+
+a{
+    text-decoration: none;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td{
+    border-bottom: 1px solid #555;
+    border-top: 1px solid #555;  
+    padding-top: 7px; 
+    font-size: 26px;  
+}
+
+th{
+    text-align: left;
+    background-color: #555;
+    color: white;
+    height: 53px;
+    font-weight: bolder;
+}
+
+th:nth-child(1){ /* Código */
+    text-align: center;
+}
+
+th:nth-child(2){ /* nome */
+    text-align: center;
+}
+
+th:nth-child(6){ /* excluir */
+    text-align: center;
+}
+
+th:nth-child(7){ /* alterar */
+    text-align: center;
+}
+
+/* ----------------------- */
+
+td:nth-child(1){ /* Código */
+    width: 60px;
+    align-content: center;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 25px;    
+}
+
+td:nth-child(2){ /* Foto */
+    width: 100px;    
+}
+
+td:nth-child(3){ /* Nome */
+    width: 600px;
+    padding: 15px;
+}
+
+td:nth-child(4){ /* Celular 01 */
+    width: 380px;
+}
+
+td:nth-child(5){ /* Celular 02 */
+    width: 380px;    
+}
+
+td:nth-child(6){ /* Excluir */
+    width: 100px;
+    align-content: center;
+    text-align: center;
+}
+
+td:nth-child(7){ /* Alterar */
+    width: 100px;
+    align-content: center;
+    text-align: center;
+}
+
+tr:hover{
+    background-color: #bbb;
+    color: black;
+}
+
+@media screen and (max-width:800px){
+    td:nth-child(2), th:nth-child(2), td:nth-child(5), th:nth-child(5){ /* Foto e Celular 02  */
+        display: none;    
+    }
+    
+
+    td:nth-child(3), td:nth-child(4){ /* celular 01 */
+        width:1080px;    
+    }
+
+    .reticencias { 
+        width:200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;        
+    }
+
+}
