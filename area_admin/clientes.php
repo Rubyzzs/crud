@@ -102,7 +102,7 @@
                         </ol>
                         -->
                     <div>
-                        <div class="card-body">
+                        <div class="card-body p-3 mb-2 bg-secondary text-white">
                             <form action="" method="POST">
                                 <div class="mb-3">
                                     <label for="nome">Nome Completo:</label>
