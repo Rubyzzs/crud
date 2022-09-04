@@ -1,6 +1,5 @@
 <?php
 //inclui o codigo do conexão no arquivo cadastar
-include_once './conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

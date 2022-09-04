@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,14 +8,14 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Sidenav Light - SB Admin</title>
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="adm.php">Área Administrativa</a>
+        <a class="navbar-brand ps-3" href="../adm.php">Área Administrativa</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -32,12 +31,12 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#!">Meu perfil</a></li>
-                   <!-- <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <!-- <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                    -->
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="index.php">Sair</a></li>
+                    <li><a class="dropdown-item" href="../">Sair</a></li>
                 </ul>
             </li>
         </ul>
@@ -55,8 +54,9 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="clientes.php">Cliente</a>
-                                <a class="nav-link" href="funcionarios.php">Funcionário</a>
+                                <a class="nav-link" href="../clientes.php">Cliente</a>
+                                <a class="nav-link" href="../funcionarios.php">Funcionário</a>
+                                <a class="nav-link" href="#">Usuários</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -72,7 +72,7 @@
                                 </a>
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="index.php">Login</a>
+                                        <a class="nav-link" href="../index.php'">Login</a>
                                         <a class="nav-link" href="register.html">Register</a>
                                         <a class="nav-link" href="password.html">Forgot Password</a>
                                     </nav>
@@ -109,40 +109,46 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4">Cadastro de Funcionário</h1>
-                    <br><br>
+
+                <!--  exibindo mensagem de verificação de senhas -->
+                <?php if (!empty($_GET['msg'])) { ?>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <?= $_GET['msg'] ?>
+                        <strong></strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                <?php } ?>
+                <!-- Fim da verificação-->
+                <div class="container-fluid">
+                    <h1 class="display-4 text-center">Inserir usuários</h1>
                     <div class="card-body p-3 mb-2 bg-secondary text-white">
-                        <form action="" method="POST">
+
+                        <form action="insert.php" method="POST">
                             <div class="mb-3">
-                                <label for="nome">Nome Completo:</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Nome Completo" required>
+                                <label for="nome">Nome de usuário:</label>
+                                <input type="text" name="nome" class="form-control" placeholder="Digite o nome..." required>
                             </div>
                             <div class="mb-3">
-                                <label for="endereco">Endereço:</label>
-                                <input type="text" name="endereco" class="form-control" placeholder="R. Xxxx; 123" required>
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" required>
                             </div>
                             <div class="mb-3">
                                 <label for="telefone">Telefone:</label>
                                 <input type="text" name="telefone" class="form-control" placeholder="Ex. (xx)123445678" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" class="form-control" placeholder="xxxxx@xxxx" required>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" name="cpf" value="CPF">
-                                <label for="cpf" class="form-check-label">CPF</label>
-                            </div>
-                            <div class="form-check form-check-inline mb-2">
-                                <input type="radio" class="form-check-input" name="cpf" value="cnpj">
-                                <label for="cnpj" class="form-check-label">CNPJ</label><br>
+                                <label for="senha">Senha:</label>
+                                <input type="password" name="senha" placeholder="*******" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control" name="cpf" placeholder="digite o cpf/cnpj" required>
+                                <label for="csenha">Confirme a senha:</label>
+                                <input type="password" name="csenha" placeholder="*******" class="form-control" required>
                             </div>
                             <div>
-                            <input class="btn btn-primary" type="submit" value="Cadastrar">
+                                <input class="btn btn-primary" type="submit" value="Cadastrar">
                             </div>
                         </form>
                     </div>
